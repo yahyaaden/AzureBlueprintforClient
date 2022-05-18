@@ -12,7 +12,7 @@ pool:
 steps:
 - task: AzurePowerShell@5
   inputs:
-    connectedServiceNameARM: '$(AzDoServiceConnectionName)'
+    connectedServiceNameARM: '$(FortmuLtd)'
     targetType: 'filePath'
     filePath: '$(System.DefaultWorkingDirectory)//deployvm.ps1'
     azurePowerShellVersion: 'LatestVersion'
