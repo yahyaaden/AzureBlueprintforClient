@@ -13,7 +13,7 @@ steps:
 - task: AzurePowerShell@5
   inputs:
     connectedServiceNameARM: FortmuLtd
-    targetType: 'filePath'
-    filePath: '$(System.DefaultWorkingDirectory)//deployvm.ps1'
+     scriptType: 'FilePath'
+    scriptPath: './deployvm.ps1'
     azurePowerShellVersion: 'LatestVersion'
     pwsh: true
