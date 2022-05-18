@@ -17,14 +17,10 @@ $DeploymentTwo = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup
 # If everything is correct, you will be asked to give an adminUsername and adminPassword for the VM
 # The new code is deployed after that
 
-if ($getarg -eq "deployone")
+if ($getarg -eq "deploy")
 {
     $DeploymentOne
-}
-
-elseif ($getarg -eq "deploytwo") 
-{
-    $DeploymentTwo   
+    $DeploymentTwo
 }
 
 else
