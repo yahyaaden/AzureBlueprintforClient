@@ -10,8 +10,9 @@ pool:
   vmImage: "windows-latest"
 
 steps:
-- task: PowerShell@2
+- task: PowerShell@7
   inputs:
     targetType: 'filePath'
     filePath: '$(System.DefaultWorkingDirectory)//deployvm.ps1'
+    azurePowerShellVersion: 'LatestVersion'
     pwsh: true
