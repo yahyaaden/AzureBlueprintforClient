@@ -1,0 +1,140 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "northeurope"
+        },
+        "networkInterfaceName2": {
+            "value": "fortmuvm2977_z2"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "FortmuVM2-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "HTTPS",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "Web"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/4d035cdf-c599-458c-8229-6f04629baf31/resourceGroups/FortmuLtd-VNet-rg/providers/Microsoft.Network/virtualNetworks/FortmuVNet"
+        },
+        "publicIpAddressName2": {
+            "value": "FortmuVM2-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineName": {
+            "value": "FortmuVM2"
+        },
+        "virtualMachineName2": {
+            "value": "FortmuVM2"
+        },
+        "virtualMachineComputerName2": {
+            "value": "FortmuVM2"
+        },
+        "virtualMachineRG": {
+            "value": "FortmuLtd-VNet-rg"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2as_v4"
+        },
+        "nicDeleteOption": {
+            "value": "Delete"
+        },
+        "adminUsername": {
+            "value": "testadmin"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        },
+        "securityType": {
+            "value": "TrustedLaunch"
+        },
+        "secureBoot": {
+            "value": true
+        },
+        "vTPM": {
+            "value": true
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "fortmultdsharedsvcsdiag"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/4d035cdf-c599-458c-8229-6f04629baf31/resourceGroups/FortmuLtd-SharedSvcs-rg/providers/Microsoft.Storage/storageAccounts/fortmultdsharedsvcsdiag"
+        },
+        "zone": {
+            "value": "2"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "W. Europe Standard Time"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Disabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        },
+        "backupVaultName": {
+            "value": "FortmuLtd-RSV"
+        },
+        "backupFabricName": {
+            "value": "Azure"
+        },
+        "backupVaultRGName": {
+            "value": "FortmuLtd-SharedSvcs-rg"
+        },
+        "backupVaultRGIsNew": {
+            "value": false
+        },
+        "backupPolicyName": {
+            "value": "DailyPolicyVMBackup"
+        },
+        "backupItemName": {
+            "value": "vm;iaasvmcontainerv2;FortmuLtd-VNet-rg;FortmuVM2"
+        }
+    }
+}
