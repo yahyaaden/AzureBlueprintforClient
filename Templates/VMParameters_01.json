@@ -77,7 +77,7 @@
             "value": "testadmin"
         },
         "adminPassword": {
-            "value": null
+            "value": "Password1234"
         },
         "patchMode": {
             "value": "AutomaticByOS"
