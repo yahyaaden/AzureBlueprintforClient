@@ -10,7 +10,7 @@ pool:
   vmImage: "windows-latest"
 
 steps:
-- task: AzurePowerShell@7
+- task: AzurePowerShell@4
   inputs:
     connectedServiceNameARM: FortmuLtd
     scriptType: 'FilePath'
