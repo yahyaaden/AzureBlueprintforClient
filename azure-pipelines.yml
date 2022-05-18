@@ -12,8 +12,8 @@ pool:
 steps:
 - task: PowerShell@2
     inputs:
-      targetType: 'inline'
-      script: 'Write-Host "This is me running PowerShell code!'
+      targetType: 'filePath'
+      filePath: '$(System.DefaultWorkingDirectory)\deployvm.ps1'
       pwsh: true
 
 - pwsh: 'Write-Host "This is me running PowerShell code!"'
