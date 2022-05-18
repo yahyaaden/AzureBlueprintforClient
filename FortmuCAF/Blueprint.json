@@ -1,0 +1,304 @@
+{
+  "properties": {
+    "displayName": "CAF Foundation",
+    "description": "Microsoft Cloud Adoption Framework for Azure – Configure Foundational best practices",
+    "targetScope": "subscription",
+    "parameters": {
+      "allowedlocations_listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "displayName": "Allowed locations (Policy: Allowed locations)",
+          "strongType": "location"
+        },
+        "allowedValues": []
+      },
+      "allowedlocationsforresourcegroups_listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "displayName": "Allowed locations (Policy: Allowed locations for resource groups)",
+          "strongType": "location"
+        },
+        "allowedValues": []
+      },
+      "deployRecoveryServicesVault_vaultName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "vaultName (Deploy Recovery Services Vault)",
+          "description": "Name of the Vault"
+        },
+        "allowedValues": []
+      },
+      "deployRecoveryServicesVault_enableCRR": {
+        "type": "bool",
+        "metadata": {
+          "displayName": "enableCRR (Deploy Recovery Services Vault)",
+          "description": "Enable CRR (Works if vault has not registered any backup instance)"
+        },
+        "defaultValue": true,
+        "allowedValues": []
+      },
+      "deployRecoveryServicesVault_vaultStorageType": {
+        "type": "string",
+        "metadata": {
+          "displayName": "vaultStorageType (Deploy Recovery Services Vault)",
+          "description": "Change Vault Storage Type (Works if vault has not registered any backup instance)"
+        },
+        "defaultValue": "GeoRedundant",
+        "allowedValues": [
+          "LocallyRedundant",
+          "GeoRedundant"
+        ]
+      },
+      "deployRecoveryServicesVault_location": {
+        "type": "string",
+        "metadata": {
+          "displayName": "location (Deploy Recovery Services Vault)",
+          "description": "Location for all resources."
+        },
+        "allowedValues": []
+      },
+      "Organization_Name": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Enter your organization name (e.g. Contoso), must be unique",
+          "description": "Organization_Name"
+        },
+        "defaultValue": ""
+      },
+      "KV-AccessPolicy": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Azure AD Group or User 'ObjectID' to grant permissions in Key Vault.(abc123de-f456-ghi7-89jk-l0mno123pqr4)",
+          "description": "KV-AccessPolicy"
+        },
+        "allowedValues": []
+      },
+      "LogAnalytics_DataRetention": {
+        "type": "int",
+        "metadata": {
+          "displayName": "Number of days data will be retained in Log Analytics",
+          "description": "Number of days data will be retained for"
+        },
+        "defaultValue": 365,
+        "allowedValues": []
+      },
+      "LogAnalytics_Location": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Azure Region used when establishing the Log Analytics workspace",
+          "description": "Region used when establishing the workspace"
+        },
+        "allowedValues": [
+          "Australia Central",
+          "Australia East",
+          "Australia Southeast",
+          "Brazil South",
+          "Canada Central",
+          "Central India",
+          "Central US",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "France Central",
+          "Japan East",
+          "Korea Central",
+          "North Central US",
+          "North Europe",
+          "South Africa North",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "UK West",
+          "West Europe",
+          "West US",
+          "West US 2"
+        ]
+      },
+      "deployVirtualNetwork_location": {
+        "type": "string",
+        "metadata": {
+          "displayName": "location (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_extendedLocation": {
+        "type": "object",
+        "metadata": {
+          "displayName": "extendedLocation (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "virtualNetworkName (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_resourceGroup": {
+        "type": "string",
+        "metadata": {
+          "displayName": "resourceGroup (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_addressSpaces": {
+        "type": "array",
+        "metadata": {
+          "displayName": "addressSpaces (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_ipv6Enabled": {
+        "type": "bool",
+        "metadata": {
+          "displayName": "ipv6Enabled (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_subnetCount": {
+        "type": "int",
+        "metadata": {
+          "displayName": "subnetCount (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_subnet0_name": {
+        "type": "string",
+        "metadata": {
+          "displayName": "subnet0_name (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_subnet0_addressRange": {
+        "type": "string",
+        "metadata": {
+          "displayName": "subnet0_addressRange (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_subnet1_name": {
+        "type": "string",
+        "metadata": {
+          "displayName": "subnet1_name (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_subnet1_addressRange": {
+        "type": "string",
+        "metadata": {
+          "displayName": "subnet1_addressRange (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_ddosProtectionPlanEnabled": {
+        "type": "bool",
+        "metadata": {
+          "displayName": "ddosProtectionPlanEnabled (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_firewallEnabled": {
+        "type": "bool",
+        "metadata": {
+          "displayName": "firewallEnabled (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_bastionEnabled": {
+        "type": "bool",
+        "metadata": {
+          "displayName": "bastionEnabled (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_bastionName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "bastionName (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_bastionSubnetAddressSpace": {
+        "type": "string",
+        "metadata": {
+          "displayName": "bastionSubnetAddressSpace (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "deployVirtualNetwork_publicIpAddressForBastion": {
+        "type": "string",
+        "metadata": {
+          "displayName": "publicIpAddressForBastion (Deploy Virtual Network)"
+        },
+        "allowedValues": []
+      },
+      "windowsvirtualmachinesshouldhaveAzureMonitorAgentinstalled_effect": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Effect (Policy: Windows virtual machines should have Azure Monitor Agent installed)"
+        },
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ]
+      },
+      "windowsvirtualmachinesshouldhaveAzureMonitorAgentinstalled_listOfWindowsImageIdToInclude": {
+        "type": "array",
+        "metadata": {
+          "displayName": "Additional Virtual Machine Images (Policy: Windows virtual machines should have Azure Monitor Agent installed)"
+        },
+        "defaultValue": [],
+        "allowedValues": []
+      },
+      "internet-facingvirtualmachinesshouldbeprotectedwithnetworksecuritygroups_effect": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Effect (Policy: Internet-facing virtual machines should be protected with network security groups)"
+        },
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ]
+      },
+      "non-internet-facingvirtualmachinesshouldbeprotectedwithnetworksecuritygroups_effect": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Effect (Policy: Non-internet-facing virtual machines should be protected with network security groups)"
+        },
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ]
+      },
+      "AzureRegion": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Select the Azure Region to deploy the Resources",
+          "description": "AzureRegion",
+          "strongType": "location"
+        },
+        "defaultValue": "eastus"
+      }
+    },
+    "resourceGroups": {
+      "SharedServices-RG": {
+        "name": "[concat(parameters('Organization_Name'),'-SharedSvcs-rg')]",
+        "location": "[parameters('AzureRegion')]",
+        "metadata": {
+          "displayName": "Resource Group for Shared Services"
+        },
+        "dependsOn": []
+      },
+      "ResourceGroup": {
+        "metadata": {
+          "displayName": "Resource Group for Virtual Network"
+        },
+        "dependsOn": []
+      }
+    }
+  }
+}

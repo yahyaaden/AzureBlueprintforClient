@@ -1,0 +1,14 @@
+{
+  "kind": "policyAssignment",
+  "properties": {
+    "displayName": "Internet-facing virtual machines should be protected with network security groups",
+    "dependsOn": [],
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f6de0be7-9a8a-4b8a-b349-43cf02d22f7c",
+    "parameters": {
+      "effect": {
+        "value": "[parameters('internet-facingvirtualmachinesshouldbeprotectedwithnetworksecuritygroups_effect')]"
+      }
+    },
+    "resourceGroup": "ResourceGroup"
+  }
+}

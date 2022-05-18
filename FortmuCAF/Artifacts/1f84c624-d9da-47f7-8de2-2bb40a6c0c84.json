@@ -1,0 +1,14 @@
+{
+  "kind": "policyAssignment",
+  "properties": {
+    "displayName": "Non-internet-facing virtual machines should be protected with network security groups",
+    "dependsOn": [],
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bb91dfba-c30d-4263-9add-9c2384e659a6",
+    "parameters": {
+      "effect": {
+        "value": "[parameters('non-internet-facingvirtualmachinesshouldbeprotectedwithnetworksecuritygroups_effect')]"
+      }
+    },
+    "resourceGroup": "ResourceGroup"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "policyAssignment",
+  "properties": {
+    "displayName": "Windows virtual machines should have Azure Monitor Agent installed",
+    "dependsOn": [],
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c02729e5-e5e7-4458-97fa-2b5ad0661f28",
+    "parameters": {
+      "effect": {
+        "value": "[parameters('windowsvirtualmachinesshouldhaveAzureMonitorAgentinstalled_effect')]"
+      },
+      "listOfWindowsImageIdToInclude": {
+        "value": "[parameters('windowsvirtualmachinesshouldhaveAzureMonitorAgentinstalled_listOfWindowsImageIdToInclude')]"
+      }
+    },
+    "resourceGroup": "ResourceGroup"
+  }
+}
