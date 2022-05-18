@@ -12,7 +12,7 @@ pool:
 steps:
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'FortmuLtd'
+    azureSubscription: 4d035cdf-c599-458c-8229-6f04629baf31
     targetType: 'filePath'
     filePath: '$(System.DefaultWorkingDirectory)//deployvm.ps1'
     azurePowerShellVersion: 'LatestVersion'
