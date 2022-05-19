@@ -12,5 +12,3 @@ $DeploymentTwo = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup
 
 $DeploymentOne
 $DeploymentTwo
-
-Write-Host "Deployment complete!" -ForegroundColor Blue
