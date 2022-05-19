@@ -19,6 +19,7 @@ $DeploymentOne = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup
 
 if ($getarg -eq "deploy")
 {
+    Connect-AzAccount
     $DeploymentOne
     #$DeploymentTwo
 }
