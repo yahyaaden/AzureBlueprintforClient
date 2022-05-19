@@ -6,7 +6,7 @@
             "value": "northeurope"
         },
         "networkInterfaceName1": {
-            "value": "fortmuvm1293_z1"
+            "value": "fortmuvm158_z1"
         },
         "enableAcceleratedNetworking": {
             "value": true
@@ -15,39 +15,13 @@
             "value": "FortmuVM1-nsg"
         },
         "networkSecurityGroupRules": {
-            "value": [
-                {
-                    "name": "HTTPS",
-                    "properties": {
-                        "priority": 300,
-                        "protocol": "TCP",
-                        "access": "Allow",
-                        "direction": "Inbound",
-                        "sourceAddressPrefix": "*",
-                        "sourcePortRange": "*",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "443"
-                    }
-                }
-            ]
+            "value": []
         },
         "subnetName": {
             "value": "NonWeb"
         },
         "virtualNetworkId": {
             "value": "/subscriptions/4d035cdf-c599-458c-8229-6f04629baf31/resourceGroups/FortmuLtd-VNet-rg/providers/Microsoft.Network/virtualNetworks/FortmuVNet"
-        },
-        "publicIpAddressName1": {
-            "value": "FortmuVM1-ip"
-        },
-        "publicIpAddressType": {
-            "value": "Static"
-        },
-        "publicIpAddressSku": {
-            "value": "Standard"
-        },
-        "pipDeleteOption": {
-            "value": "Delete"
         },
         "virtualMachineName": {
             "value": "FortmuVM1"

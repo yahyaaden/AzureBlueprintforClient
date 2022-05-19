@@ -23,18 +23,6 @@
         "virtualNetworkId": {
             "type": "string"
         },
-        "publicIpAddressName1": {
-            "type": "string"
-        },
-        "publicIpAddressType": {
-            "type": "string"
-        },
-        "publicIpAddressSku": {
-            "type": "string"
-        },
-        "pipDeleteOption": {
-            "type": "string"
-        },
         "virtualMachineName": {
             "type": "string"
         },
@@ -137,8 +125,7 @@
             "apiVersion": "2021-03-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName1'))]"
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -148,13 +135,7 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIpAddress": {
-                                "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName1'))]",
-                                "properties": {
-                                    "deleteOption": "[parameters('pipDeleteOption')]"
-                                }
-                            }
+                            "privateIPAllocationMethod": "Dynamic"
                         }
                     }
                 ],
@@ -162,6 +143,11 @@
                 "networkSecurityGroup": {
                     "id": "[variables('nsgId')]"
                 }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
         },
         {
@@ -171,22 +157,12 @@
             "location": "[parameters('location')]",
             "properties": {
                 "securityRules": "[parameters('networkSecurityGroupRules')]"
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
-        },
-        {
-            "name": "[parameters('publicIpAddressName1')]",
-            "type": "Microsoft.Network/publicIpAddresses",
-            "apiVersion": "2020-08-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
-            },
-            "sku": {
-                "name": "[parameters('publicIpAddressSku')]"
-            },
-            "zones": [
-                "1"
-            ]
         },
         {
             "name": "[parameters('virtualMachineName1')]",
@@ -251,6 +227,11 @@
                     }
                 }
             },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
+            },
             "zones": [
                 "1"
             ]
@@ -276,6 +257,11 @@
                     "notificationLocale": "[parameters('autoShutdownNotificationLocale')]",
                     "timeInMinutes": "30"
                 }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
         },
         {
@@ -593,6 +579,11 @@
                     "storageAccountKey": "[first(listKeys(parameters('diagnosticsStorageAccountId'),'2019-06-01').keys).value]",
                     "storageAccountEndPoint": "https://core.windows.net/"
                 }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             },
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName1'))]"

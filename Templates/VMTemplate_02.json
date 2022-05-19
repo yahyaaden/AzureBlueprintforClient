@@ -3,124 +3,112 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "String"
+            "type": "string"
         },
         "networkInterfaceName2": {
-            "type": "String"
+            "type": "string"
         },
         "enableAcceleratedNetworking": {
-            "type": "Bool"
+            "type": "bool"
         },
         "networkSecurityGroupName": {
-            "type": "String"
+            "type": "string"
         },
         "networkSecurityGroupRules": {
-            "type": "Array"
+            "type": "array"
         },
         "subnetName": {
-            "type": "String"
+            "type": "string"
         },
         "virtualNetworkId": {
-            "type": "String"
-        },
-        "publicIpAddressName2": {
-            "type": "String"
-        },
-        "publicIpAddressType": {
-            "type": "String"
-        },
-        "publicIpAddressSku": {
-            "type": "String"
-        },
-        "pipDeleteOption": {
-            "type": "String"
+            "type": "string"
         },
         "virtualMachineName": {
-            "type": "String"
+            "type": "string"
         },
         "virtualMachineName2": {
-            "type": "String"
+            "type": "string"
         },
         "virtualMachineComputerName2": {
-            "type": "String"
+            "type": "string"
         },
         "virtualMachineRG": {
-            "type": "String"
+            "type": "string"
         },
         "osDiskType": {
-            "type": "String"
+            "type": "string"
         },
         "osDiskDeleteOption": {
-            "type": "String"
+            "type": "string"
         },
         "virtualMachineSize": {
-            "type": "String"
+            "type": "string"
         },
         "nicDeleteOption": {
-            "type": "String"
+            "type": "string"
         },
         "adminUsername": {
-            "type": "String"
+            "type": "string"
         },
         "adminPassword": {
-            "type": "SecureString"
+            "type": "secureString"
         },
         "patchMode": {
-            "type": "String"
+            "type": "string"
         },
         "enableHotpatching": {
-            "type": "Bool"
+            "type": "bool"
         },
         "securityType": {
-            "type": "String"
+            "type": "string"
         },
         "secureBoot": {
-            "type": "Bool"
+            "type": "bool"
         },
         "vTPM": {
-            "type": "Bool"
+            "type": "bool"
         },
         "diagnosticsStorageAccountName": {
-            "type": "String"
+            "type": "string"
         },
         "diagnosticsStorageAccountId": {
-            "type": "String"
+            "type": "string"
         },
         "zone": {
-            "type": "String"
+            "type": "string"
         },
         "autoShutdownStatus": {
-            "type": "String"
+            "type": "string"
         },
         "autoShutdownTime": {
-            "type": "String"
+            "type": "string"
         },
         "autoShutdownTimeZone": {
-            "type": "String"
+            "type": "string"
         },
         "autoShutdownNotificationStatus": {
-            "type": "String"
+            "type": "string"
         },
         "autoShutdownNotificationLocale": {
-            "type": "String"
+            "type": "string"
         },
         "backupVaultName": {
-            "type": "String"
+            "type": "string"
         },
         "backupFabricName": {
-            "type": "String"
+            "type": "string"
         },
         "backupVaultRGName": {
-            "type": "String"
+            "type": "string"
         },
         "backupVaultRGIsNew": {
-            "type": "Bool"
+            "type": "bool"
         },
         "backupPolicyName": {
-            "type": "String"
+            "type": "string"
         },
         "backupItemName": {
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {
@@ -132,13 +120,12 @@
     },
     "resources": [
         {
+            "name": "[parameters('networkInterfaceName2')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2021-03-01",
-            "name": "[parameters('networkInterfaceName2')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName2'))]"
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -148,13 +135,7 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIpAddress": {
-                                "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName2'))]",
-                                "properties": {
-                                    "deleteOption": "[parameters('pipDeleteOption')]"
-                                }
-                            }
+                            "privateIPAllocationMethod": "Dynamic"
                         }
                     }
                 ],
@@ -162,42 +143,34 @@
                 "networkSecurityGroup": {
                     "id": "[variables('nsgId')]"
                 }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
         },
         {
+            "name": "[parameters('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-02-01",
-            "name": "[parameters('networkSecurityGroupName')]",
             "location": "[parameters('location')]",
             "properties": {
                 "securityRules": "[parameters('networkSecurityGroupRules')]"
-            }
-        },
-        {
-            "type": "Microsoft.Network/publicIpAddresses",
-            "apiVersion": "2020-08-01",
-            "name": "[parameters('publicIpAddressName2')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('publicIpAddressSku')]"
             },
-            "zones": [
-                "2"
-            ],
-            "properties": {
-                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
         },
         {
+            "name": "[parameters('virtualMachineName2')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2021-07-01",
-            "name": "[parameters('virtualMachineName2')]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName2'))]"
-            ],
-            "zones": [
-                "2"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -253,12 +226,20 @@
                         "enabled": true
                     }
                 }
-            }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
+            },
+            "zones": [
+                "2"
+            ]
         },
         {
+            "name": "[concat('shutdown-computevm-', parameters('virtualMachineName2'))]",
             "type": "Microsoft.DevTestLab/schedules",
             "apiVersion": "2018-09-15",
-            "name": "[concat('shutdown-computevm-', parameters('virtualMachineName2'))]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName2'))]"
@@ -276,15 +257,18 @@
                     "notificationLocale": "[parameters('autoShutdownNotificationLocale')]",
                     "timeInMinutes": "30"
                 }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
             }
         },
         {
-            "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "name": "[concat(parameters('virtualMachineName2'), '-' , 'BackupIntent')]",
-            "dependsOn": [
-                "[resourceId(parameters('virtualMachineRG'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName2'))]"
-            ],
+            "type": "Microsoft.Resources/deployments",
+            "resourceGroup": "[parameters('backupVaultRGName')]",
             "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -305,16 +289,15 @@
                     ]
                 }
             },
-            "resourceGroup": "[parameters('backupVaultRGName')]"
+            "dependsOn": [
+                "[resourceId(parameters('virtualMachineRG'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName2'))]"
+            ]
         },
         {
+            "name": "[concat(parameters('virtualMachineName2'),'/', variables('diagnosticsExtensionName'))]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2018-10-01",
-            "name": "[concat(parameters('virtualMachineName2'),'/', variables('diagnosticsExtensionName'))]",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName2'))]"
-            ],
             "properties": {
                 "publisher": "Microsoft.Azure.Diagnostics",
                 "type": "IaaSDiagnostics",
@@ -596,12 +579,20 @@
                     "storageAccountKey": "[first(listKeys(parameters('diagnosticsStorageAccountId'),'2019-06-01').keys).value]",
                     "storageAccountEndPoint": "https://core.windows.net/"
                 }
-            }
+            },
+            "tags": {
+                "CostCenter": "FortmuLtd",
+                "Team": "Development",
+                "Environment": "Test"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName2'))]"
+            ]
         }
     ],
     "outputs": {
         "adminUsername": {
-            "type": "String",
+            "type": "string",
             "value": "[parameters('adminUsername')]"
         }
     }
