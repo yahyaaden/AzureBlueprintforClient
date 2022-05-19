@@ -8,9 +8,9 @@ $TemplateOne = ".\Templates\VMTemplate_01.json"
 $ParameterOne = ".\Templates\VMParameters_01.json"
 $DeploymentOne = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup -TemplateFile $TemplateOne -TemplateParameterFile $ParameterOne
 
-$TemplateTwo = ".\Templates\VMTemplate_02.json"
-$ParameterTwo = ".\Templates\VMParameters_02.json"
-$DeploymentTwo = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup -TemplateFile $TemplateTwo -TemplateParameterFile $ParameterTwo
+#$TemplateTwo = ".\Templates\VMTemplate_02.json"
+#$ParameterTwo = ".\Templates\VMParameters_02.json"
+#$DeploymentTwo = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup -TemplateFile $TemplateTwo -TemplateParameterFile $ParameterTwo
 
 
 # We check if the variable meets the criteria of our condition
@@ -20,7 +20,7 @@ $DeploymentTwo = New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup
 if ($getarg -eq "deploy")
 {
     $DeploymentOne
-    $DeploymentTwo
+    #$DeploymentTwo
 }
 
 else
