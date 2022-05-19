@@ -3,7 +3,7 @@
 # When running this script, change the $VMName to the correct VM name
 
 $ResourceGroup = "FortmuLtd-VNet-rg"
-$VMOne = "TestVM"
+$VMOne = "FortmuVM1"
 #$VMTwo = "FortmuVM2"
 
 ##Standard_D2as_v4 <- Standard size with deployment
@@ -24,3 +24,4 @@ $UpdateVMOne
 #$VM = Get-AzVM -ResourceGroupName $ResourceGroup -VMName $VMTwo
 #$VM.HardwareProfile.VmSize = "<vm-size>"
 #$UpdateVMTwo = Update-AzVM -VM $VM -ResourceGroupName $ResourceGroup
+#$UpdateVMTwo
