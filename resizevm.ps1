@@ -17,7 +17,7 @@ $VMOne = "FortmuVM1"
 #Use the resizevm pipeline to run the update commands
 
 $VM = Get-AzVM -ResourceGroupName $ResourceGroup -VMName $VMOne
-$VM.HardwareProfile.VmSize = "Standard_D2as_v4"
+$VM.HardwareProfile.VmSize = "Standard_D4as_v4"
 $UpdateVMOne = Update-AzVM -VM $VM -ResourceGroupName $ResourceGroup
 $UpdateVMOne
 
